@@ -1,0 +1,39 @@
+<div class="total">
+    <header>
+      <img src="../../assets/a.png" height="100">
+      <h1>Gonzalo Rando Database</h1>
+    </header>
+    <div class="row">
+      <h2>Descuento Informática Sur.</h2>
+      <p>
+        El vendedor Informática Sur realiza un 15% de descuento a los ordenadores que cuesten más de 1500€. <br>
+        La consulta muestra todos los ordenadores que ha vendido este vendedor, el precio de estos y si se ha aplicado el descuento.
+      </p>
+      <div class=" card m-5 col-lg-11 ">
+        <div class="card-body">
+            <button class="btn btn-primary" routerLink="/queries">Volver</button>
+          <table class="table table-striped tabladark">
+            <thead>
+              <tr>
+                <th class="text-center" scope="col">Id Ordenador</th>
+                <th class="text-center" scope="col">Descuento</th>
+                <th class="text-center" scope="col">Precio</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of list ">
+                <td class="text-center">{{ doc.idOrdenador }}</td>
+                <td class="text-center">{{ doc.applyDiscount }}</td>
+                <td class="text-center">{{ doc.price | currency : "EUR" }}</td>
+              </tr>
+            <tfoot>
+              
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <h5 class="text-center">Gonzalo Rando Serna - 1ºASIR</h5>
+    </footer>
+  </div>

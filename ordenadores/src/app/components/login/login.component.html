@@ -1,0 +1,42 @@
+<div class="total">
+    <header>
+      <img src="../../assets/a.png" height="100">
+      <h1>Gonzalo Rando Database</h1>
+    </header>
+    <div class="row">
+      <h1>Login.</h1>
+      <div class="m-5 col-lg-11">
+       <!--  Usamos formGroup para crear un formulario de angular y el ngSubmit para ejecutar una funcion al aceptar el formulario -->
+        <form [formGroup]="login" (ngSubmit)="logueo()">
+            <div class="mb-4 linea">
+            <label for="usuario" class="form-label">Usuario:</label>
+            <div class="flex min">
+                <i class="fa-solid fa-user bg-primary"></i>
+                <input type="text" id="idVenta" formControlName="usuario" class="form-control texto" placeholder="Nombre de usuario">
+            </div>
+           <!--  Imprimimos un error cuando pulsemos el campo y no este relleno -->
+            <div class="text-danger"
+                *ngIf="login.get('usuario')?.hasError('required') && login.get('usuario')?.touched">
+                <span>El usuario <b>es obligatorio</b></span>
+            </div>
+            </div>
+            <div class="mb-4 linea">
+            <label for="password" class="form-label">Contraseña:</label>
+            <div class="flex min">
+                <i class="fa-solid fa-key bg-primary"></i>
+                <input type="password" id="password" formControlName="password" class="form-control texto" placeholder="Contraseña">
+            </div>
+            <div class="text-danger"
+                *ngIf="login.get('password')?.hasError('required') && login.get('password')?.touched">
+                <span>La contraseña <b>es obligatoria</b></span>
+            </div>
+            </div>
+            <button type="submit" [disabled]="login.invalid" class="btn btn-primary btn-lg float-start mt-5">Aceptar</button>             
+        </form>
+      
+    </div>
+    <footer>
+      <h5 class="text-center">Gonzalo Rando Serna - 1ºASIR</h5>
+    </footer>
+  </div>
+

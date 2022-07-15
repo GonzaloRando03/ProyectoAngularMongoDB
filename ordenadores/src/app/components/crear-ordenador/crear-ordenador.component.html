@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    
+  </head>
+  <body>
+    <div class="total">
+      <header>
+        <img src="../../assets/a.png" height="100">
+        <h1>Gonzalo Rando Database</h1>
+      </header>
+      <div class="row">
+        <h2>Crear nuevo ordenador.</h2>
+        <div class="m-5 col-lg-11 ">
+          <div class="card-body">
+            <!-- aqui ponemos el nombre del formulario y la funcion que queremos que se ejecute cuando pulsamos el botón de submit -->
+            <form [formGroup]="ordenadorForm" (ngSubmit)="agregarOrdenador()">
+              <div class="mb-4 linea">
+                <label for="idVenta" class="form-label">Id venta:</label>
+                <div class="flex min">
+                  <i class="fa-solid fa-cart-shopping bg-primary"></i>
+                  <input type="number" id="idVenta" formControlName="idVenta" class="form-control texto" placeholder="Id de la venta a la que pertenece">
+                </div>
+                <!-- si el campo no esta relleno nos avisa diciendonos que el campo es obligatorio -->
+                  <div class="text-danger"
+                   *ngIf="ordenadorForm.get('idVenta')?.hasError('required') && ordenadorForm.get('idVenta')?.touched">
+                    <span>El id de la venta <b>es obligatorio</b></span>
+                  </div>
+              </div>
+              <div class="mb-4 linea">
+                <label for="idOrdenador" class="form-label">Id ordenador:</label>
+                <div class="flex min">
+                  <i class="fa-solid fa-computer bg-primary"></i>
+                  <input type="number" id="idOrdenador" formControlName="idOrdenador" class="form-control texto" placeholder="Escribe el id del ordenador">
+                </div>
+                  <div class="text-danger"
+                    *ngIf="ordenadorForm.get('idOrdenador')?.hasError('required') && ordenadorForm.get('idOrdenador')?.touched">
+                      <span>El id del ordenador <b>es obligatorio</b></span>
+                  </div>
+              </div>  
+              <h4>Placa base:</h4>
+              <div class="f-column">
+              <div class="mb-4 flex">
+                <div class="margin-r">
+                  <label for="socket" class="form-label">Socket:</label>
+                  <div class="flex min">
+                    <i class="fa-solid fa-microchip bg-primary"></i>
+                    <input type="text" id="socket" formControlName="socket" class="form-control texto-m" placeholder="Escribe el socket de la placa">
+                  </div>
+                  <div class="text-danger"
+                   *ngIf="ordenadorForm.get('socket')?.hasError('required') && ordenadorForm.get('socket')?.touched">
+                    <span>El socket <b>es obligatorio</b></span>
+                  </div>
+                </div>
+                <div class="margin-r">
+                  <label for="marcaPlaca" class="form-label">Marca:</label>
+                  <div class="flex min">
+                    <i class=" fa-brands fa-bandcamp bg-primary"></i>
+                    <input type="text" id="marcaPlaca" formControlName="marcaPlaca" class="form-control texto-m" placeholder="Escribe la marca de la placa">
+                  </div>
+                  <div class="text-danger"
+                   *ngIf="ordenadorForm.get('marcaPlaca')?.hasError('required') && ordenadorForm.get('marcaPlaca')?.touched">
+                    <span>La marca de la placa <b>es obligatoria</b></span>
+                  </div>
+                </div>
+              </div>
+              <div class="linea flex mb-4">
+                <div class="margin-r">
+                  <label for="puertos" class="form-label">Puertos:</label>
+                  <div class="flex form-total">
+                    <i class="fa-brands fa-usb bg-primary"></i>
+                    <input type="text" id="puertos" formControlName="puertos" class="form-control form-total" placeholder="Escribe los puertos de la placa (separados por coma)">
+                  </div>
+                  <div class="text-danger"
+                   *ngIf="ordenadorForm.get('puertos')?.hasError('required') && ordenadorForm.get('puertos')?.touched">
+                    <span>Los puertos de la placa <b>son obligatorios</b></span>
+                  </div>
+                </div>
+              </div>
+              </div>
+              <h4>
+                Memoria:
+              </h4>
+              <div class="mb-4 flex linea">
+                <div class="margin-r">
+                  <label for="cap" class="form-label">Capacidad (GB):</label>
+                  <div class="flex min">
+                    <i class="fa-solid fa-table bg-primary"></i>
+                    <input type="number" id="cap" formControlName="capacidadMem" class="form-control texto-m" placeholder="Escribe la capacidad de la memoria">
+                  </div>
+                  <div class="text-danger"
+                   *ngIf="ordenadorForm.get('capacidadMem')?.hasError('required') && ordenadorForm.get('capacidadMem')?.touched">
+                    <span>La capacidad de la memoria <b>es obligatoria</b></span>
+                  </div>
+                </div>
+                <div class="margin-r">
+                  <label for="tipoMem" class="form-label">Tipo:</label>
+                  <div class="flex min">
+                    <i class="fa-solid fa-memory bg-primary"></i>
+                    <input type="text" id="tipoMem" formControlName="tipoMem" class="form-control texto-m" placeholder="Escribe el tipo de la memoria">
+                  </div>
+                  <div class="text-danger"
+                   *ngIf="ordenadorForm.get('tipoMem')?.hasError('required') && ordenadorForm.get('tipoMem')?.touched">
+                    <span>El tipo de la memoria <b>es obligatorio</b></span>
+                  </div>
+                </div>
+              </div>
+              <h4>
+                Procesador:
+              </h4>
+              <div class="mb-4 flex linea">
+                <div class="margin-r">
+                  <label for="marcaProc" class="form-label"> Marca:</label>
+                  <div class="flex min">
+                    <i class="fa-solid fa-microchip bg-primary"></i>
+                    <input type="text" id="marcaProc" formControlName="marcaProc" class="form-control texto-m" placeholder="Escribe la marca del procesador">
+                  </div>
+                  <div class="text-danger"
+                   *ngIf="ordenadorForm.get('marcaProc')?.hasError('required') && ordenadorForm.get('marcaProc')?.touched">
+                    <span>La marca del <br> procesador <br><b>es obligatoria</b></span>
+                  </div>
+                </div>
+                <div class="margin-r">
+                  <label for="modelProc" class="form-label">Modelo:</label>
+                  <div class="flex min">
+                    <i class="fa-solid fa-microchip bg-primary"></i>
+                    <input type="text" id="modelProc" formControlName="modeloProc" class="form-control texto-m" placeholder="Escribe el modelo del procesador">
+                  </div>
+                  <div class="text-danger"
+                   *ngIf="ordenadorForm.get('modeloProc')?.hasError('required') && ordenadorForm.get('modeloProc')?.touched">
+                   <span>El modelo del procesador <b>es obligatorio</b></span>
+                  </div>
+                </div>
+                <div class="margin-r">
+                  <label for="gen" class="form-label">Generación:</label>
+                  <div class="flex min">
+                    <i class="fa-solid fa-microchip bg-primary"></i>
+                    <input type="number" id="gen" formControlName="generacion" class="form-control texto-m" placeholder="Escribe la generación del procesador">
+                  </div>
+                  <div class="text-danger"
+                   *ngIf="ordenadorForm.get('generacion')?.hasError('required') && ordenadorForm.get('generacion')?.touched">
+                    <span>La generación del procesador <b>es obligatoria</b></span>
+                  </div>
+                </div>
+              </div>
+              <h4>
+                Tarjeta gráfica:
+              </h4>
+              <div class="mb-4 flex linea">
+                <div class="margin-r">
+                  <label for="tipoGpu" class="form-label">Tipo:</label>
+                  <div class="flex min">
+                    <i class="fa-solid fa-server bg-primary"></i>
+                    <input type="text" id="tipoGpu" formControlName="tipoGpu" class="form-control texto-m" placeholder="Escribe el tipo de la gpu">
+                  </div>
+                </div>
+                <div class="margin-r">
+                  <label for="marcaGpu" class="form-label"> Marca:</label>
+                  <div class="flex min">
+                    <i class=" fa-brands fa-bandcamp bg-primary"></i>
+                    <input type="text" id="marcaGpu" formControlName="marcaGpu" class="form-control texto-m" placeholder="Escribe la marca de la gpu">
+                  </div>
+                </div>
+                <div class="margin-r">
+                  <label for="modelGpu" class="form-label">Modelo:</label>
+                  <div class="flex min">
+                    <i class="fa-solid fa-computer bg-primary"></i>
+                    <input type="text" id="modelGpu" formControlName="modeloGpu" class="form-control texto-m" placeholder="Escribe el modelo de la gpu">
+                  </div>
+                </div>
+              </div>
+              <h4>
+                Caja:
+              </h4>
+              <div class="mb-4 flex">
+                <div class="margin-r">
+                  <label for="color" class="form-label">Colores:</label>
+                  <div class="flex min">
+                    <i class="fa-solid fa-palette bg-primary"></i>
+                    <input type="text" id="color" formControlName="color" class="form-control texto-m" placeholder="Colores de la caja (separados por coma)">
+                  </div>
+                  <div class="text-danger"
+                   *ngIf="ordenadorForm.get('color')?.hasError('required') && ordenadorForm.get('color')?.touched">
+                    <span>Los colores de la caja <b>son obligatorios</b></span>
+                  </div>
+                </div>
+                <div class="margin-r">
+                <label for="altura" class="form-label"> Altura:</label>
+                  <div class="flex min">
+                    <i class="fa-solid fa-ruler bg-primary"></i>
+                    <input type="number" id="altura" formControlName="alto" class="form-control texto-m" placeholder="Escribe la altura de la caja">
+                  </div>
+                  <div class="text-danger"
+                   *ngIf="ordenadorForm.get('alto')?.hasError('required') && ordenadorForm.get('alto')?.touched">
+                    <span>La altura de la caja <b>es obligatoria</b></span>
+                  </div>
+                </div>
+                <div class="margin-r">
+                  <label for="ancho" class="form-label">Anchura:</label>
+                  <div class="flex min">
+                    <i class="fa-solid fa-ruler bg-primary"></i>
+                    <input type="number" id="ancho" formControlName="ancho" class="form-control texto-m" placeholder="Escribe la anchura de la caja">
+                  </div>
+                  <div class="text-danger"
+                   *ngIf="ordenadorForm.get('ancho')?.hasError('required') && ordenadorForm.get('ancho')?.touched">
+                    <span>La anchura de la caja <b>es obligatoria</b></span>
+                  </div>
+                </div>
+              </div>
+              <div class="linea flex mb-4">
+                <div class="margin-r">
+                  <label for="usb" class="form-label">USBs:</label>
+                  <div class="flex form-total">
+                    <i class="fa-brands fa-usb bg-primary"></i>
+                    <input type="text" id="usb" formControlName="usb" class="form-control form-total" placeholder="Versiones de los puertos USB (separados por coma)">
+                  </div>
+                  <div class="text-danger"
+                   *ngIf="ordenadorForm.get('usb')?.hasError('required') && ordenadorForm.get('usb')?.touched">
+                    <span>Los puertos USB de la caja <b>son obligatorios</b></span>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4 linea">
+                <label for="fuente" class="form-label">Fuente de alimentación:</label>
+                <div class="flex min">
+                  <i class="fa-solid fa-plug-circle-bolt bg-primary"></i>
+                  <input type="text" id="fuente" formControlName="fuente" class="form-control texto" placeholder="Potencia ej: 650w">
+                </div>
+                  <div class="text-danger"
+                   *ngIf="ordenadorForm.get('fuente')?.hasError('required') && ordenadorForm.get('fuente')?.touched">
+                    <span>La potencia de la funete <b>es obligatoria</b></span>
+                  </div>
+              </div>
+              <h4>
+                Discos:
+              </h4>
+              <div class="mb-4 disco linea" formArrayName="discos" >
+                <!-- hacemos un bucle for para que nos muestre el formulario por cada disco que quieras añadir. -->
+                <div class="mb-5" *ngFor="let disk of discosFormArray.controls; let i = index;">
+                  <div [formGroupName]="i" class="flex">
+                    <div class="f-column">
+                    <div class="margin-r">
+                      <label for="tipoHdd" class="form-label">Tipo:</label>
+                      <div class="flex min">
+                        <i class="fa-solid fa-memory bg-primary"></i>
+                        <input type="text" id="tipoHdd" matInput formControlName="tipo" class="form-control texto-m" placeholder="Escribe el tipo del disco">
+                      </div>
+                    </div>
+                    <div class="margin-r">
+                      <label for="capHdd" class="form-label">Capacidad (GB):</label>
+                      <div class="flex min">
+                        <i class="fa-solid fa-table bg-primary"></i>
+                        <input type="number" id="capHdd"  matInput formControlName="capacidad"  class="form-control texto-m" placeholder="Escribe la capacidad del disco">
+                      </div>
+                    </div>
+                    </div>
+                    <div class="botonesDisk">
+                      <!-- botones de borrar y añadir disco -->
+                      <div class="col-md-1"><input type="button" class="btn btn-primary mas" id="add_disk" (click)="addDisco()"  value="+" /></div>
+                      <div class="col-md-1"><input type="button" class="btn btn-primary mas" id="del_disk" (click)="borrarDisco(i)" value="-" /></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="mb-4 linea flex">
+                <label for="so" class="form-label">Sistema operativo:</label>
+                <div class=" ">
+                  <input type="checkbox" id="so" formControlName="sistemaOperativo" class="sO">
+                </div>
+              </div>
+              <div class="mb-4 linea">
+                <label for="fecha" class="form-label">Fecha de fabricación:</label>
+                <div class="flex min">
+                  <i class="fa-solid fa-calendar bg-primary"></i>
+                  <input type="date" id="fecha" formControlName="fechaFabricacion" class="form-control texto">
+                </div>
+                <div class="text-danger"
+                   *ngIf="ordenadorForm.get('fechaFabricacion')?.hasError('required') && ordenadorForm.get('fechaFabricacion')?.touched">
+                    <span>La fecha de fabricación <b>es obligatoria</b></span>
+                  </div>
+              </div>
+              <div class="mb-4 linea">
+                <label for="perifericos" class="form-label">Perifericos:</label>
+                <div class="flex margin-r ">
+                  <i class="fa-solid fa-display bg-primary"></i>
+                  <input type="text" id="perifericos" formControlName="perifericos" class="form-control margin-r texto-m" placeholder="Escribe los perifericos (separados por comas)">
+                </div>
+              </div>
+              <div class="mb-4 linea">
+                <label for="precio" class="form-label">Precio base:</label>
+                <div class="flex min">
+                  <i class="fa-solid fa-euro-sign bg-primary"></i>
+                  <input type="number" id="precio" formControlName="precio" class="form-control texto " placeholder="Escribe el precio base del ordenador">
+                </div>
+                <div class="text-danger"
+                   *ngIf="ordenadorForm.get('precio')?.hasError('required') && ordenadorForm.get('precio')?.touched">
+                    <span>El precio <b>es obligatorio</b></span>
+                  </div>
+              </div>
+              <!-- botones del formulario -->
+              <button type="submit" [disabled]="ordenadorForm.invalid" class="btn btn-primary btn-lg float-start mt-5">Crear</button>
+              <button routerLink="/listar-ordenador" class="btn btn-secondary btn-lg float-end mt-5">Volver</button>             
+            </form>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <h5 class="text-center">Gonzalo Rando Serna - 1ºASIR</h5>
+      </footer>
+    </div>
+  </body>
+</html>
+
+  

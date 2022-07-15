@@ -1,0 +1,72 @@
+body{
+    background:  rgb(25, 33, 68);
+  }
+  
+  h2 {
+    color: rgb(255, 255, 255);
+    margin-left:20px;
+    padding-bottom:30px;
+  }
+  
+  .tabladark{
+    color: rgb(49, 63, 125);
+  }
+  
+  .disco{
+    width:8%;
+  }
+  
+  .buscador{
+    display: flex;
+    color: white;
+    margin:2%;
+    margin-bottom: 0;
+  }
+  
+  .buscador input {
+    border-radius: 10px;
+    margin-left: 1%;
+  }
+  
+  
+  .title{
+    font-weight: bold;
+    color: rgb(54, 79, 181) ;
+  }
+  
+  .sep{
+    background-color: rgb(222, 222, 222);
+  }
+  
+  .fa-solid{
+    cursor: pointer;
+    margin-right: 10px;
+  }
+  
+  .btn{
+    margin:20px;
+    margin-bottom:0px;
+    width:200px;
+  }
+
+  .mini{
+    width: 5%;
+  }
+
+  .fa-magnifying-glass{
+    margin-left: 1%;
+    font-size: 25px;
+  }
+
+
+
+  footer{
+    padding-bottom: 2%;
+    margin-top: 10%;
+  }
+
+  .buscar{
+    margin-left: 10px;
+    width: 2.5%;
+    border-radius: 50px;
+  }

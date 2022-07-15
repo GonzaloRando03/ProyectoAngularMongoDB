@@ -1,0 +1,46 @@
+<div class="total">
+    <header>
+      <img src="../../assets/a.png" height="100">
+      <h1>Gonzalo Rando Database</h1>
+    </header>
+    <div class="row">
+      <h2>Marcas con las que trabajamos.</h2>
+      <form [formGroup]="buscador">
+        <div class="buscador">
+          <label for="id">Buscar ventas: </label>
+          <input type="text" id="id" placeholder="Introduce id" formControlName="id">
+          <button type="submit" class="buscar btn-primary" [routerLink]="['/marca', verId()]" (click)="obtenerMarcas()">
+            <i class="fa-solid fa-magnifying-glass" ></i>
+          </button>
+        </div>
+      </form>
+      <div class=" card m-5 col-lg-11 ">
+        <div class="card-body">
+            <button class="btn btn-primary" routerLink="/menu">Volver</button>
+          <table class="table table-striped tabladark">
+            <thead>
+              <tr>
+                <th class="text-center" scope="col">Nombre</th>
+                <th class="text-center" scope="col">Número de provisiones</th>
+                <th class="text-center" scope="col">Ordenadores en los que aparece</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of list ">
+                <td class="text-center">{{ doc._id }}</td>
+                <td class="text-center">{{ doc.noProvisiones }}</td>
+                <td class="text-center">{{ doc.ordenadores }}</td>
+
+              </tr>
+            <tfoot>
+              
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <h5 class="text-center">Gonzalo Rando Serna - 1ºASIR</h5>
+    </footer>
+  </div>
+

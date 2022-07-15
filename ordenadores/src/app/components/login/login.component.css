@@ -1,0 +1,41 @@
+ .texto{
+    width:13%;
+  }
+
+  .fa-solid{
+    font-size:20px;
+    padding:10px;
+    color:white;
+    border-radius:5px;
+  }
+
+  .min{
+    width: 250%;
+  }
+
+  .text-danger{
+    margin-top: 5px;
+  }
+
+  .min input{
+    margin-right: 20px;
+  }
+
+  .row h1{
+      margin-left: 2%;
+  }
+
+  label{
+      color: white;
+      font-size: 20px;
+  }
+
+  form{
+      margin-left: 40%;
+      margin-bottom: 23%;
+  }
+
+  .btn{
+      width: 37%;
+      margin-bottom: 5%;
+  }

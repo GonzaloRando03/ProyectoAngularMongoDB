@@ -1,0 +1,43 @@
+<div class="total">
+    <header>
+      <img src="../../assets/a.png" height="100">
+      <h1>Gonzalo Rando Database</h1>
+    </header>
+    <div class="row">
+      <h2>Ordenador mas caro y mas barato fabricados en 2021.</h2>
+      <p>
+        Muestra el ordenador mas caro y el mas barato fabricados en 2021 con su id, la venta a la que pertenece,
+        el precio y la fecha de fabricación.
+      </p>
+      <div class=" card m-5 col-lg-11 ">
+        <div class="card-body">
+            <button class="btn btn-primary" routerLink="/queries">Volver</button>
+          <table class="table table-striped tabladark">
+            <thead>
+              <tr>
+                  <th></th>
+                <th class="text-center" scope="col">Id Ordenador</th>
+                <th class="text-center" scope="col">Venta</th>
+                <th class="text-center" scope="col">Precio</th>
+                <th class="text-center" scope="col">Fecha fabricación</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of list ">
+                <td class="text-center">{{ doc.tipo }}</td>
+                <td class="text-center">{{ doc.ordenador.idOrdenador }}</td>
+                <td class="text-center">{{ doc.ordenador.idVenta }}</td>
+                <td class="text-center">{{ doc.ordenador.precio | currency : "EUR" }}</td>
+                <td class="text-center">{{ doc.ordenador.caracteristicas.fecha_fabricacion | date:'dd/MM/yyyy' }}</td>
+              </tr>
+            <tfoot>
+              
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <h5 class="text-center">Gonzalo Rando Serna - 1ºASIR</h5>
+    </footer>
+  </div>

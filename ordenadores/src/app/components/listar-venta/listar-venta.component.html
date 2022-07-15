@@ -1,0 +1,54 @@
+<div class="total">
+    <header>
+      <img src="../../assets/a.png" height="100">
+      <h1>Gonzalo Rando Database</h1>
+    </header>
+    <div class="row">
+      <h2>Listado de Ventas.</h2>
+      <form [formGroup]="buscador">
+        <div class="buscador">
+          <label for="id">Buscar ventas: </label>
+          <input type="text" id="id" placeholder="Introduce id" formControlName="id">
+          <button type="submit" class="buscar btn-primary" [routerLink]="['/una-venta', verId()]" (click)="obtenerVentas()">
+            <i class="fa-solid fa-magnifying-glass" ></i>
+          </button>
+        </div>
+      </form>
+      <div class=" card m-5 col-lg-11 ">
+        <div>
+          <button class="btn btn-primary" routerLink="/crear-venta">Nueva Venta</button>
+          <button class="btn btn-primary float-end" routerLink="/menu">Volver</button>
+        </div>
+        <div class="card-body">
+          <table class="table table-striped tabladark">
+            <thead>
+              <tr>
+                <th class="text-center" scope="col">ID</th>
+                <th class="text-center" scope="col">Vendedor</th>
+                <th class="text-center" scope="col">Comprador</th>
+                <th class="text-center" scope="col">Fecha de venta</th>
+                <td></td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let venta of listVentas">
+                <td class="text-center">{{ venta.idVenta }}</td>
+                <td class="text-center">{{ venta.vendedor }}</td>
+                <td class="text-center">{{ venta.comprador }}</td>
+                <td class="text-center">{{ venta.fechaVenta | date:'dd/MM/yyyy' }}</td>
+                <td class="mini">
+                    <i [routerLink]="['/editar-venta', venta.idVenta]" class="fa-solid fa-pen-to-square text-primary"></i>
+                    <i (click)="eliminarVenta(venta.idVenta)" class="fa-solid fa-trash text-danger"></i>
+                </td>
+              </tr>
+            <tfoot>
+              
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <h5 class="text-center">Gonzalo Rando Serna - 1ºASIR</h5>
+    </footer>
+  </div>

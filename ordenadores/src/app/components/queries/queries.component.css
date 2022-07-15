@@ -1,0 +1,20 @@
+.btn {
+    width: 600px;
+    margin-left: 15%;
+    margin-bottom:10%;
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+tbody tr {
+    border: 0px;
+}
+
+.row h1{
+    margin-left: 1%;
+    margin-bottom: 3%;
+}
+
+table{
+    margin-bottom: 4%; 
+}

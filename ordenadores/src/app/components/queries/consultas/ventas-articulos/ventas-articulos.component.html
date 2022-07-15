@@ -1,0 +1,51 @@
+<div class="total">
+    <header>
+      <img src="../../assets/a.png" height="100">
+      <h1>Gonzalo Rando Database</h1>
+    </header>
+    <div class="row">
+      <h2>Ventas con los articulos y marcas.</h2>
+      <div class=" card m-5 col-lg-11 ">
+        <div class="card-body">
+            <button class="btn btn-primary" routerLink="/menu">Volver</button>
+          <table class="table table-striped tabladark">
+            <thead>
+              <tr>
+                <th class="text-center" scope="col"></th>
+                <th class="text-center" scope="col">Venta</th>
+                <th class="text-center" scope="col">Vendedor</th>
+                <th class="text-center" scope="col">Comprador</th>
+                <th class="text-center" scope="col">Fecha Venta</th>
+                <th class="text-center" scope="col">Precio Venta</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let venta of ventasArticulos ">
+              <tr>
+                <td class="text-center"><b>Venta:</b></td>
+                <td class="text-center">{{ venta.idVenta }}</td>
+                <td class="text-center">{{ venta.vendedor }}</td>
+                <td class="text-center">{{ venta.comprador }}</td>
+                <td class="text-center">{{ venta.fechaVenta | date:'dd/MM/yyyy' }}</td>
+                <td class="text-center">{{ venta.precioVenta | currency: "EUR" }}</td>
+              </tr>
+              <tr>
+                <td  class="text-center"><b>Marcas: </b></td>
+                <td colspan="5" >{{ venta.marcas | split }}</td>
+              </tr>
+              <tr *ngFor="let ordenador of venta._ordenadores ">
+                <td class="text-center"><b>Ordenador: </b> {{ ordenador.idOrdenador }}</td>
+                <td class="text-center"><b>Procesador: </b> {{ ordenador.modeloProc }}</td>
+                <td class="text-center"><b>Memoria: </b> {{ ordenador.capacidadMem }}</td>
+                <td class="text-center"><b>GPU: </b> {{ ordenador.tarjetaGrafica.modelo }}</td>
+                <td class="text-center"><b>Perifericos: </b> {{ ordenador.perifericos | split }}</td>
+                <td class="text-center"><b>Precio: </b> {{ ordenador.precio | currency: "EUR" }}</td>
+              </tr>
+              <br>
+            </tbody>
+            <tfoot>
+              
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>

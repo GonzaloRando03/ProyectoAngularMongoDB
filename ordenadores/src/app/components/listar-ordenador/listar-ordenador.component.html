@@ -1,0 +1,125 @@
+<div class="total">
+  <header>
+    <img src="../../assets/a.png" height="100">
+    <h1>Gonzalo Rando Database</h1>
+  </header>
+  <div class="row">
+    <h2>Listado de ordenadores.</h2>
+    <!-- buscador para buscar los ordenadores -->
+    <form [formGroup]="buscador">
+      <div class="buscador">
+        <label for="id">Buscar ventas: </label>
+        <input type="text" id="id" placeholder="Introduce id" formControlName="id">
+        <button type="submit" class="buscar btn-primary" [routerLink]="['/un-ordenador', verId()]" (click)="obtenerOrdenadores()">
+          <i class="fa-solid fa-magnifying-glass" ></i>
+        </button>
+      </div>
+    </form>
+    <div class=" card m-5 col-lg-11 ">
+      <div>
+        <button class="btn btn-primary" routerLink="/crear-ordenador">Nuevo Ordenador</button>
+        <button class="btn btn-primary float-end" routerLink="/menu">Volver</button>
+      </div>
+      <div class="card-body">
+        <table class="table tabladark">
+          <thead>
+            <tr>
+              <th class="text-center" scope="col">Venta</th>
+              <th class="text-center" scope="col">ID</th>
+              <th colspan="2" class="text-center " scope="col">Placa</th>
+              <th colspan="2" class="text-center" scope="col">Memoria</th>
+              <th colspan="2" class="text-center" scope="col">Procesador</th>
+              <th class="text-center" scope="col">Tarjeta Gráfica</th>
+              <th colspan="2" class="text-center" scope="col">Caja</th>
+              <th class="text-center" scope="col">Fuente</th>
+              <th class="text-center minimo" scope="col">Discos</th>
+              <th class="text-center" scope="col">Sistema operativo</th>
+              <th class="text-center" scope="col">Fecha fabricación</th>
+              <th class="text-center" scope="col">Periféricos</th>
+              <th class="text-center" scope="col">Precio</th>
+              <td></td>
+            </tr>
+          </thead>
+          <!-- bucle que nuestra los ordenadores que haya en listOrdenador -->
+          <tbody *ngFor="let ordenador of listOrdenador">
+            <tr>
+              <td rowspan="4">{{ ordenador.idVenta }}</td>
+              <td rowspan="4">{{ ordenador.idOrdenador }}</td>
+              <td class="title">Socket:</td>
+              <td >{{ ordenador.caracteristicas.placa.socket }}</td>
+              <td class="title">Capacidad:</td>
+              <td>{{ ordenador.caracteristicas.memoria.capacidad }}</td>
+              <td class="title">Marca:</td>
+              <td>{{ ordenador.caracteristicas.procesador.marca }}</td>
+              <td class="text-center">{{ ordenador.caracteristicas.tarjeta_grafica.tipo }}</td>
+              <td class="title">Colores:</td>
+              <td>{{ ordenador.caracteristicas.caja.color }}</td>
+              <td rowspan="4">{{ ordenador.caracteristicas.fuente }}</td>
+              <td rowspan="4"><div *ngFor="let disco of ordenador.caracteristicas.disco"><b>Tipo: </b>{{ disco.tipo }}<br> <b>Capacidad: </b>{{ disco.capacidad }}<br><br></div></td>
+              <td rowspan="4" class="text-center">{{ ordenador.caracteristicas.sistema_operativo | boolean}}</td>
+              <td rowspan="4">{{ ordenador.caracteristicas.fecha_fabricacion | date:'dd/MM/yyyy' }}</td>
+              <td rowspan="4">{{ ordenador.perifericos | split }}</td>
+              <td rowspan="4">{{ ordenador.precio | currency : "EUR" }}</td>
+              <td rowspan="4" class="f-column">
+                <!-- botones de editar y borrar ordenador -->
+                <i [routerLink]="['/editar-ordenador', ordenador.idOrdenador]" class="fa-solid fa-pen-to-square text-primary mb-2 "></i>
+                <i (click)="eliminarOrdenador(ordenador.idOrdenador)" class="fa-solid fa-trash text-danger"></i>
+              </td>
+            </tr>
+            <tr>
+              <td class="title">Marca:</td>
+              <td >{{ ordenador.caracteristicas.placa.marca }}</td>
+              <td rowspan="3" class="title">Tipo:</td>
+              <td rowspan="3">{{ ordenador.caracteristicas.memoria.tipo }}</td>
+              <td class="title">Modelo:</td>
+              <td> {{ ordenador.caracteristicas.procesador.modelo }}</td>
+              <td class="text-center">{{ ordenador.caracteristicas.tarjeta_grafica.marca }}</td>
+              <td class="title">Altura:</td>
+              <td>{{ ordenador.caracteristicas.caja.dimensiones.h }}</td>
+            </tr>
+            <tr>
+              <td rowspan="2" class="title">Puertos: </td>
+              <td rowspan="2" >{{ ordenador.caracteristicas.placa.puertos | split }}</td>
+              <td rowspan="2" class="title">Generación:</td>
+              <td rowspan="2">{{ ordenador.caracteristicas.procesador.generacion }}</td>
+              <td rowspan="2" class="text-center">{{ ordenador.caracteristicas.tarjeta_grafica.modelo }}</td>
+              <td class="title">Anchura:</td>
+              <td>{{ ordenador.caracteristicas.caja.dimensiones.w }}</td>
+            </tr>
+            <tr>
+              <td class="title">USBs:</td>
+              <td>{{ ordenador.caracteristicas.caja.usb }}</td>
+            </tr>
+            
+          </tbody>
+          </table>
+
+
+        
+      </div>
+    </div>
+  </div>
+  <footer>
+    <h5 class="text-center">Gonzalo Rando Serna - 1ºASIR</h5>
+  </footer>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,82 @@
+body{
+  background:  rgb(25, 33, 68);
+}
+
+label{
+  color:white;
+  font-size:20px;
+}
+
+.texto{
+  width:13%;
+}
+
+.texto-m{
+  width:230%;
+  padding-right: 2px ;
+}
+
+.linea{
+  padding-bottom:10px;
+  border-bottom: solid rgb(54, 79, 181) 3px;
+}
+
+.fa-solid{
+  font-size:20px;
+  padding:10px;
+  color:white;
+  border-radius:5px;
+}
+
+.fa-brands{
+  font-size:20px;
+  padding:10px;
+  color:white;
+  border-radius:5px;
+}
+
+.form-total{
+  width:400%;
+}
+
+.f-column{
+  display:flex;
+  flex-direction:column;
+}
+
+.min{
+  width: 130%;
+}
+
+.min input{
+  margin-right: 20px;
+}
+
+.mas{
+  margin-top:27%;
+}
+
+.disco{
+  display: flex;
+  flex-direction: column;
+}
+
+.botonesDisk{
+  margin-left: 5%;
+  margin-top: 3%;
+}
+
+.botonesDisk input{
+  margin-bottom: 20px;
+}
+
+.sO {
+  width: 20px;
+  height: 20px;
+  margin-left: 15px;
+  margin-top: 15%;
+}
+
+.select{
+  padding-right: 80%;
+}

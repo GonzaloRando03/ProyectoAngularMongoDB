@@ -1,0 +1,21 @@
+.buscador{
+    display: flex;
+    color: white;
+    margin:2%;
+    margin-bottom: 0;
+}
+
+.buscador input {
+    border-radius: 10px;
+    margin-left: 1%;
+}
+
+.buscar{
+    margin-left: 10px;
+    width: 2.5%;
+    border-radius: 50px;
+}
+
+.row {
+    margin-bottom: 12%;
+}

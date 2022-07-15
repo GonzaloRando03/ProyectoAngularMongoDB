@@ -1,0 +1,61 @@
+<div class="total">
+    <header>
+    <img src="../../assets/a.png" height="100">
+    <h1>Gonzalo Rando Database</h1>
+    </header>
+    <div class="row">
+    <h2>{{ titulo }}.</h2>
+    <div class="m-5 col-lg-11 ">
+        <div class="card-body">
+        <form [formGroup]="ventaForm" (ngSubmit)="agregarVenta()">
+            <div class="mb-4 linea">
+            <label for="idVenta" class="form-label">Id venta:</label>
+            <div class="flex min">
+                <i class="fa-solid fa-cart-shopping bg-primary"></i>
+                <input type="number" id="idVenta" formControlName="idVenta" class="form-control texto" placeholder="Id de la venta a la que pertenece">
+            </div>
+            <div class="text-danger"
+                *ngIf="ventaForm.get('idVenta')?.hasError('required') && ventaForm.get('idVenta')?.touched">
+                <span>El id de la venta <b>es obligatorio</b></span>
+            </div>
+            </div>
+            <div class="mb-4 linea">
+            <label for="vendedor" class="form-label">Vendedor:</label>
+            <div class="flex min">
+                <i class="fa-solid fa-user bg-primary"></i>
+                <input type="text" id="vendedor" formControlName="vendedor" class="form-control texto" placeholder="Escribe nombre del vendedor">
+            </div>
+            <div class="text-danger"
+                *ngIf="ventaForm.get('vendedor')?.hasError('required') && ventaForm.get('vendedor')?.touched">
+                <span>El vendedor la venta <b>es obligatorio</b></span>
+            </div>
+            </div>
+            <div class="mb-4 linea">
+                <label for="comprador" class="form-label">Comprador:</label>
+                <div class="flex min">
+                    <i class="fa-solid fa-user bg-primary"></i>
+                    <input type="text" id="comprador" formControlName="comprador" class="form-control texto" placeholder="Escribe nombre del comprador">
+                </div>
+                <div class="text-danger"
+                *ngIf="ventaForm.get('comprador')?.hasError('required') && ventaForm.get('comprador')?.touched">
+                <span>El comprador de la venta <b>es obligatorio</b></span>
+            </div>
+            </div>
+            <div class="mb-4 linea">
+                <label for="fechaVenta" class="form-label">Fecha de venta:</label>
+                <div class="flex min">
+                    <i class="fa-solid fa-calendar bg-primary"></i>
+                    <input type="date" id="fechaVenta" formControlName="fechaVenta" class="form-control texto">
+                </div>
+            </div>
+            
+            <button type="submit" [disabled]="ventaForm.invalid" class="btn btn-primary btn-lg float-start mt-5">Crear</button>
+            <button routerLink="/listar-venta" class="btn btn-secondary btn-lg float-end mt-5">Volver</button>             
+        </form>
+        </div>
+    </div>
+    </div>
+    <footer>
+    <h5 class="text-center">Gonzalo Rando Serna - 1ºASIR</h5>
+    </footer>
+</div>

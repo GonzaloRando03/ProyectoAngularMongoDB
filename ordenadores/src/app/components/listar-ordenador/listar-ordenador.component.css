@@ -1,0 +1,64 @@
+body{
+  background:  rgb(25, 33, 68);
+}
+
+h2 {
+  color: rgb(255, 255, 255);
+  margin-left:20px;
+  padding-bottom:30px;
+}
+
+.buscador{
+  display: flex;
+  color: white;
+  margin:2%;
+  margin-bottom: 0;
+}
+
+.buscador input {
+  border-radius: 10px;
+  margin-left: 1%;
+}
+
+
+.title{
+  font-weight: bold;
+  color: rgb(54, 79, 181) ;
+}
+
+.sep{
+  background-color: rgb(222, 222, 222);
+}
+
+.fa-solid{
+  cursor: pointer;
+  margin-bottom: 2px;
+}
+
+.btn{
+  margin:20px;
+  margin-bottom:0px;
+  width:200px;
+}
+
+.minimo{
+  width:1px;
+}
+
+.sep{
+  background-color: rgb(222, 222, 222);
+}
+
+b {
+  color: rgb(54, 79, 181);
+}
+
+.buscar{
+  margin-left: 10px;
+  width: 2.5%;
+  border-radius: 50px;
+}
+
+
+
+

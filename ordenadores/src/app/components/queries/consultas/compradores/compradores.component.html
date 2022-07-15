@@ -1,0 +1,37 @@
+<div class="total">
+    <header>
+      <img src="../../assets/a.png" height="100">
+      <h1>Gonzalo Rando Database</h1>
+    </header>
+    <div class="row">
+      <h2>Mejores compradores.</h2>
+      <p>
+        Muestra todos los compradores con el dinero que nos han generado ordenados de mayor a menor 
+        ganancia que nos han dado (de mejor a peor comprador).
+      </p>
+      <div class=" card m-5 col-lg-11 ">
+        <div class="card-body">
+            <button class="btn btn-primary" routerLink="/queries">Volver</button>
+          <table class="table table-striped tabladark">
+            <thead>
+              <tr>
+                <th class="text-center" scope="col">Comprador</th>
+                <th class="text-center" scope="col">Dinero generado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let doc of list ">
+                <td class="text-center">{{ doc._id }}</td>
+                <td class="text-center">{{ doc.precioCompras | currency : "EUR" }}</td>
+              </tr>
+            <tfoot>
+              
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <h5 class="text-center">Gonzalo Rando Serna - 1ºASIR</h5>
+    </footer>
+  </div>
