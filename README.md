@@ -23,7 +23,7 @@ Carpeta de ordenadores fronted, carpeta servidor backend.
 >Base de datos alojada en MongoAtlas.
 
 
-runFronted y runBackend son dos script par que puedan correr el proyecto.
+runFronted y runBackend son dos script para que puedan correr el proyecto.
 Si la base de datos está activa podeis loguearos con usuario: usuario, contraseña: usuario
 Podeis editar el código para conectaros a vuestra propia base de datos de MongoAtlas
 
